@@ -1,0 +1,329 @@
+@charset "UTF-8";
+
+html {
+    color: #424242;
+}
+
+body > .main > .logo-container > .logo {
+    width: 4rem;
+}
+
+#form {
+    display: flex;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    flex-direction: column;
+    width: 360px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+#form > .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    padding-bottom: 23px;
+    border-bottom: 1px solid rgb(237, 237, 237);
+}
+
+#form > .input-container > .title {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+    letter-spacing: -0.3px;
+}
+
+#form > .input-container > .email-input-container {
+    display: flex;
+}
+
+#form > .input-container > .email-check-container > label{
+    display: flex;
+    flex-direction: column;
+}
+
+#form > .input-container > .email-input-container > .email-input,
+#form > .input-container > .email-input-container > .email-domain {
+    width: 100%;
+}
+
+#form > .input-container > .email-input-container > .email-input > label > input,
+#form > .input-container > .email-input-container > .email-domain > label > select,
+#form > .input-container > .email-check-container > label > input,
+#form > .input-container > .password-input-container > .password-input > label > input,
+#form > .input-container > .nickname-input-container > .nickname-input > label > input,
+#form > .input-container > .name-input-container > .name-input > label > input,
+#form > .input-container > .address-input-container > .address-input > label > input,
+#form > .input-container > .contact-input-container > .contact-input > label > input {
+    display: block;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    padding: 0 15px;
+    line-height: 40px;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+
+}
+
+#form > .input-container > .email-check-container{
+    display: none;
+}
+
+#form > .input-container > .email-check-container.visible{
+    display: block;
+}
+
+#form > .input-container > .email-check-container > label > input{
+    margin-bottom: 0.5rem;
+}
+
+#form > .input-container > .email-check-container > label > .email-check-button{
+    background-color: rgb(129 111 92);
+    color: rgb(255,255,255);
+    cursor: pointer;
+}
+
+
+#form > .input-container > .email-check-container > label > .email-check-button:hover{
+    background-color: rgb(100, 85, 71);
+}
+
+#form > .input-container > .email-input-container > .email-separator {
+    display: flex;
+    align-items: center;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    color: rgb(219, 219, 219);
+}
+
+#form > .input-container > .email-input-container > .email-domain > label > select {
+    color: rgb(0, 0, 0);
+}
+
+#form > .email-submit-container > .email-send,
+#form > .input-container > .register-submit-container > a > .register-send {
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 100%;
+    height: 45px;
+    padding: 0px;
+    background: rgb(247, 248, 250);
+    color: rgb(194, 200, 204);
+    border: 1px solid rgb(218, 220, 224);
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 1rem;
+}
+
+#form > .email-submit-container > .email-send{
+    color: rgb(255, 255, 255);
+    background-color: rgb(129,111,92);
+    cursor: pointer;
+}
+
+#form > .email-submit-container > .email-send:disabled,
+#form > .input-container > .email-input-container > .email-domain > label > select:disabled,
+#form > .email-submit-container > .email-send:disabled:hover,
+#form > .input-container > .email-input-container > .email-input > label >.email:disabled,
+#form > .input-container > .email-check-container > label > .input:disabled,
+#form > .input-container > .email-check-container > label > .email-check-button:disabled
+
+{
+    cursor: default;
+    background-color: rgb(234, 236, 238);
+    color: rgb(171, 178, 185);
+}
+
+#form > .email-submit-container > .email-send:hover{
+    background-color: rgb(100, 85, 71);
+}
+
+
+#form > .input-container > .text {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #828C94;
+    letter-spacing: -0.3px;
+}
+
+#form > .input-container > .address-input-container > .address-input > label > .address-button {
+    color: rgb(255, 255, 255);
+    background-color: rgb(129 111 92);
+    cursor: pointer;
+    width: 40%;
+    margin-left: 0.3rem;
+}
+
+#form > .input-container > .address-input-container > .address-input > label > .address-button:hover {
+    background-color: rgb(100, 85, 71);
+}
+
+#form > .input-container > .address-input-container > .address-input > .label.address:first-child {
+    display: flex;
+    margin-bottom: 0.5rem;
+
+}
+
+#form > .input-container > .address-input-container > .address-input > .label.address > .input.find{
+    margin-bottom: 0.5rem;
+}
+
+#form > .input-container > .address-input-container > .address-input > .panel.address{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*화면 어둡게 */
+    background-color: rgba(0, 0, 0, 70%);
+    position: fixed;
+
+    display: none;
+}
+
+#form > .input-container > .address-input-container > .address-input > .panel.address.visible{
+    display: block;
+}
+
+#form > .input-container > .address-input-container > .address-input > .panel.address > .dialog{
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    max-width: 27.5rem;
+    max-height: 30rem;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+#form > .input-container.password,
+#form > .input-container.nickname,
+#form > .input-container.name,
+#form > .input-container.address,
+#form > .input-container.contact{
+    margin-bottom: 1rem;
+}
+
+#form > .input-container > .agree-container > .agree > label {
+    display: flex;
+    cursor: pointer;
+}
+
+#form > .input-container > .agree-container {
+    padding: 18px;
+    border: 1px solid #EAEDEF;
+    margin-bottom: 30px;
+}
+
+#form > .input-container > .agree-container > .agree > label {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    user-select: none;
+}
+
+#form > .input-container > .agree-container > .agree > label > .agree > .checkbox > input {
+    cursor: pointer;
+}
+
+#form > .input-container > .agree-container > .agree > label > .agree-all-text {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 6px;
+    color: #2F3438;
+}
+
+#form > .input-container > .agree-container > .agree > label > .agree-all-text > .text {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+#form > .input-container > .agree-container > .agree > label > .agree-all-text > .text > .sub-text {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #828C94;
+}
+
+#form > .input-container > .agree-container > .agree {
+    margin-bottom: 0.8rem;
+}
+
+#form > .input-container > .agree-container > .agree:last-child {
+    margin-bottom: 0;
+}
+
+#form > .input-container > .agree-container > .agree > label > .agree-text {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 6px;
+    color: #2F3438;
+}
+
+#form > .input-container > .agree-container > .agree > label > .agree-text > .text {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+}
+
+#form > .input-container > .agree-container > .agree > label > .agree-text.option1 > .text::after {
+    content: "(필수)";
+    display: inline-block;
+    padding-left: 2px;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgb(255, 26, 0);
+}
+
+#form > .input-container > .agree-container > .agree > label > .agree-text.option2::after {
+    content: "(선택)";
+    display: inline-block;
+    padding-left: 2px;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgb(134, 134, 134);
+}
+
+#form > .input-container > .register-submit-container > a > .register-send {
+    margin-top: 0;
+    color: rgb(255, 255, 255);
+    background-color: rgb(129 111 92);
+    height: 53px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#form > .input-container > .register-submit-container > a > .register-send:hover {
+    background-color: rgb(100, 85, 71);
+}
+
+#form > .already-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#form > .already-register > a {
+    margin-left: 0.5rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+

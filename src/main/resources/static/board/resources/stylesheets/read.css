@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+body > .main > .content {
+    width: 65rem;
+    margin: 1rem 0 10rem;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+body > .main > .content > .title {
+    font-size: 1.5rem;
+}
+
+body > .main > .content > .button-container {
+    display: flex;
+    margin-top: 1rem;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+body > .main > .content > .button-container > .object-button.modify,
+body > .main > .content > .button-container > .object-button.delete,
+body > .main > .content > .button-container > .object-button.list {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    height: 2.6rem;
+    width: 5rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+body > .main > .content > .button-container > .object-button.modify,
+body > .main > .content > .button-container > .object-button.delete {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(192, 162, 123);
+    color: rgb(192, 162, 123);
+}
+
+body > .main > .content > .button-container > .object-button.list {
+    background-color: rgb(192, 162, 123);
+    border: 1px solid rgb(192, 162, 123);;
+    color: rgb(255, 255, 255);
+}
+
+body > .main > .content > .button-container > .object-button:hover {
+    opacity: .6;
+}
+
+body > .main > .content > .option {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #c8cdd0;
+}
+
+body > .main > .content > .option > .profile-img > img {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+body > .main > .content > .option > .option.detail {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+}
+
+body > .main > .content > .option > .option.detail > .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 0.9rem;
+    color: rgb(115, 112, 112);
+}
+
+body > .main > .content > .option > .option.detail > .bottom > .date,
+body > .main > .content > .option > .option.detail > .bottom > .click-container,
+body > .main > .content > .option > .option.detail > .bottom > .click {
+    margin-right: 0.5rem;
+}
+
+body > .main > .content > .content-container {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+body > .main > .content > .content-container > .content {
+    padding-bottom: 6rem;
+}
+
+body > .main > .content > .content-container > .comment-container > .comment-count > i {
+    color: rgb(173, 144, 107);
+    margin-right: 0.5rem;
+}
+
+body > .main > .content > .content-container > .comment-container > .comment-count {
+    margin-bottom: 2rem;
+}
+
+body > .main > .content > .content-container > .comment-container > .comment-count > .count {
+    font-size: 1rem;
+    color: rgb(115, 112, 112);
+}
+
+#commentForm{
+    margin-top: 0.5rem;
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#commentForm > label{
+    flex: 1;
+    margin-right: 0.8rem;
+}
+#commentForm > label > .object-input {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 0.0625rem solid rgb(213, 216, 220);
+    box-sizing: border-box;
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.5rem;
+}
+
+#commentForm  > .object-button{
+    background-color: rgb(192, 162, 123);
+    border: 1px solid rgb(192, 162, 123);;
+    color: rgb(255, 255, 255);
+    width: 5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 0.5rem ;
+}
+
+#commentForm  > .object-button:hover{
+    opacity: .6;
+    cursor: pointer;
+}
+
+body> .main > .content > .content-container > .comment-container > .comment-content{
+    margin-top: 2rem;
+}
+
+body> .main > .content > .content-container > .comment-container > .comment-content > .comment > .head{
+    display: flex;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #c8cdd0;
+    font-size: 1rem;
+}
+
+body> .main > .content > .content-container > .comment-container > .comment-content > .comment > .head > .writer{
+    margin-right: 0.5rem;
+}
+
+body> .main > .content > .content-container > .comment-container > .comment-content > .comment > .head > .dt{
+    font-size: 0.9rem;
+    color: rgb(115, 112, 112);
+}
+
+body> .main > .content > .content-container > .comment-container > .comment-content > .comment > .head > .like{
+    margin-left: 1rem;
+    color: rgb(115, 112, 112);
+}
+
+body> .main > .content > .content-container > .comment-container > .comment-content > .comment > .head > .like > .toggle{
+    text-decoration: none;
+    color: rgb(220, 101, 101);
+}
+
+body> .main > .content > .content-container > .comment-container > .comment-content > .comment > .body{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+

@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+html {
+    color: #424242;
+}
+
+body {
+    display: block;
+}
+
+body > .main {
+    margin: 8px;
+}
+
+#form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 360px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+body > .main > .logo-container > .logo {
+    width: 4rem;
+    margin-bottom: 1rem;
+}
+
+#form > .icon-container {
+    margin-bottom: 2rem;
+}
+
+#form > .icon-container > i {
+    font-size: 4rem;
+    color: rgb(129 111 92);
+}
+
+body > .main > .form > .title-container > .title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+body > .main > .form > .text-container {
+    font-size: 13px;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1.5rem;
+    color: rgb(134, 134, 134);
+}
+
+#form > .submit-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#form > .submit-container > .submit-button > a > .login-send {
+    margin-right: 1rem;
+}
+
+#form > .submit-container > .submit-button > a > .login-send,
+#form > .submit-container > .submit-button > a > .main-send {
+    margin-top: 1.5rem;
+    color: rgb(255, 255, 255);
+    background-color: rgb(129 111 92);
+    height: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    width: 12rem;
+    border: 1px solid rgb(218, 220, 224);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#form > .submit-container > .submit-button > a > .login-send:hover,
+#form > .submit-container > .submit-button > a > .main-send:hover {
+    background-color: rgb(100, 85, 71);
+}
+

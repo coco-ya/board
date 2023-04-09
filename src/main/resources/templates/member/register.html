@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원가입</title>
+    <link rel="stylesheet" th:href="@{/member/resources/stylesheets/register.css}">
+    <script defer th:src="@{/member/resources/scripts/register.js}"></script>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+<main class="main">
+    <a class="logo-container" th:href="@{/board/list (bid=notice)}">
+        <img alt="logo" class="logo" th:src="@{/resources/images/5721739.png}">
+    </a>
+
+    <form class="form" id="form">
+        <h1 class="title">회원가입</h1>
+        <div class="input-container">
+            <label class="title">
+                이메일
+            </label>
+            <div class="email-input-container">
+                 <span class="email-input">
+                     <label>
+                     <input class="email" placeholder="이메일" name="email">
+                     </label>
+                 </span>
+                <span class="email-separator">@</span>
+                <span class="email-domain">
+                    <label>
+                        <select id="domainSelect">
+                          <option selected disabled>선택해주세요</option>
+                          <option value="naver.com" >naver.com</option>
+                        <option value="daum.net" >daum.net</option>
+                         <option value="hanmail.com">hanmail.com</option>
+                         <option value="gmail.com">gmail.com</option>
+                         <option value="nate.com" >nate.com</option>
+                         <option value="icloud.com">icloud.com</option>
+
+                     </select>
+                     </label>
+                 </span>
+            </div>
+        </div>
+
+        <div class="email-submit-container">
+            <input class="email-send" name="emailSend" value="이메일 인증하기" type="button">
+        </div>
+
+        <div class="input-container">
+            <div class="email-check-container" id="emailCheckContainer">
+                <label class="label email">
+                    <span hidden>인증번호</span>
+                    <input class="input" disabled maxlength="50" name="emailAuthCode"
+                           placeholder="이메일 인증번호를 입력해 주세요." type="text">
+                    <input name="emailAuthSalt" type="hidden">
+                    <input class="email-check-button" disabled name="emailVerify" value="인증번호 확인"
+                           type="button">
+                </label>
+            </div>
+        </div>
+
+        <div class="input-container password">
+            <label class="title">
+                비밀번호
+            </label>
+            <div class="text">
+                영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.
+            </div>
+            <div class="password-input-container">
+                 <span class="password-input">
+                     <label>
+                     <input class="password" minlength="8" placeholder="비밀번호" type="password" name="password">
+                     </label>
+                 </span>
+            </div>
+        </div>
+        <div class="input-container password">
+            <label class="title">
+                비밀번호 확인
+            </label>
+            <div class="password-input-container">
+                 <span class="password-input">
+                     <label>
+                     <input class="password" minlength="8" placeholder="비밀번호 확인" name="passwordCheck"type="password">
+                     </label>
+                 </span>
+            </div>
+        </div>
+
+        <div class="input-container name">
+            <label class="title">
+                이름
+            </label>
+
+            <div class="name-input-container">
+                 <span class="name-input">
+                     <label>
+                     <input class="name" minlength="2" maxlength="5" name="name" placeholder="이름 (2~5자)">
+                     </label>
+                 </span>
+            </div>
+        </div>
+
+        <div class="input-container nickname">
+            <label class="title">
+                닉네임
+            </label>
+            <div class="text">
+                다른 유저와 겹치지 않도록 입력해주세요. (2~15자)
+            </div>
+            <div class="nickname-input-container">
+                 <span class="nickname-input">
+                     <label>
+                     <input class="nickname" minlength="2" maxlength="12" name="nickname" placeholder="별명 (2~15자)">
+                     </label>
+                 </span>
+            </div>
+        </div>
+
+        <div class="input-container contact">
+            <label class="title">
+                연락처
+            </label>
+            <div class="text">
+                연락처를 ' - ' 없이 입력해 주세요
+            </div>
+            <div class="contact-input-container">
+                 <span class="contact-input">
+                     <label>
+                     <input class="contact" type="number" maxlength="11" name="contact" placeholder="연락처">
+                     </label>
+                 </span>
+            </div>
+        </div>
+
+        <div class="input-container address">
+            <label class="title">
+                주소
+            </label>
+            <div class="address-input-container">
+                 <span class="address-input">
+                    <label class="label address">
+                                <input class="input" maxlength="6" name="addressPostal"
+                                       placeholder="우편 번호" readonly type="text">
+                                <input class="address-button" name="addressFind" value="주소 찾기" type="button">
+                    </label>
+                            <label class="label address">
+                                <span hidden>기본 주소</span>
+                                <input class="input find" maxlength="100" name="addressPrimary"
+                                       placeholder="주소 찾기를 통해 주소를 입력해 주세요."
+                                       readonly type="text">
+                            </label>
+                            <label class="label address">
+                                <span hidden>상세 주소</span>
+                                <input class="input" maxlength="100" name="addressSecondary"
+                                       placeholder="상세 주소를 입력해 주세요." type="text">
+                            </label>
+                            <div class="panel address" rel="addressFindPanel">
+                                <div class="dialog" rel="addressFindPanelDialog"></div>
+                            </div>
+                 </span>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <label class="title">
+                약관동의
+            </label>
+            <div class="agree-container">
+                <div class="agree all">
+                    <label class="object-check">
+                        <div class="agree all">
+                            <div class="checkbox">
+                                <span class="checkbox-hidden">
+                                </span>
+                                <input type="checkbox" name="agreeAll" class="agreeAll">
+                            </div>
+                        </div>
+                        <span class="agree-all-text">
+                                <span class="text">전체동의
+                                    <span class="sub-text">선택항목에 대한 동의 포함</span>
+                                </span>
+                            </span>
+                    </label>
+                </div>
+
+                <hr class="line">
+
+                <div class="agree">
+                    <label>
+                        <div class="agree">
+                            <div class="checkbox">
+                                <span class="checkbox-hidden">
+                                </span>
+                                <input type="checkbox" name="onAgree1" class="agree">
+                            </div>
+                        </div>
+                        <span class="agree-text option1">
+                                <span class="text">만 14세 이상입니다.
+                                </span>
+                            </span>
+                    </label>
+                </div>
+
+                <div class="agree">
+                    <label>
+                        <div class="agree">
+                            <div class="checkbox">
+                                <span class="checkbox-hidden">
+                                </span>
+                                <input type="checkbox" name="onAgree2" class="agree">
+                            </div>
+                        </div>
+                        <span class="agree-text option1">
+                                <span class="text">이용약관
+                                </span>
+                            </span>
+                    </label>
+                </div>
+
+
+                <div class="agree">
+                    <label>
+                        <div class="agree">
+                            <div class="checkbox">
+                                <span class="checkbox-hidden">
+                                </span>
+                                <input type="checkbox" name="onAgree3" class="agree">
+                            </div>
+                        </div>
+                        <span class="agree-text option1">
+                                <span class="text">개인정보수집 및 이용동의
+                                </span>
+                            </span>
+                    </label>
+                </div>
+
+
+                <div class="agree">
+                    <label>
+                        <div class="agree">
+                            <div class="checkbox">
+                                <span class="checkbox-hidden">
+                                </span>
+                                <input type="checkbox"  name="selectAgree" class="agree">
+                            </div>
+                        </div>
+                        <span class="agree-text option2">
+                                <span class="text">개인정보 마케팅 활용 동의
+                                </span>
+                            </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="register-submit-container">
+                <a>
+                    <input class="register-send" rel="registerSend" value="회원가입하기" type="button">
+                </a>
+            </div>
+        </div>
+
+        <p class="already-register">
+            이미 아이디가 있으신가요?
+            <a href="/member/login">로그인</a>
+        </p>
+
+    </form>
+</main>
+</body>
+</html>

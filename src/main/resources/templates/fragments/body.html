@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<header class="--header" th:fragment="header">
+    <div class="head-content">
+        <a class="logo-container" th:href="@{/board/list (bid=notice)}">
+            <img alt="logo" class="logo" th:src="@{/resources/images/5721739.png}">
+        </a>
+        <div class="menu-container">
+            <!--/*@thymesVar id="board" type="com.cocoyami.board.entities.board.BoardEntity"*/-->
+            <a class="menu" th:href="@{/board/list (bid=notice)}">
+                <span class="notice">공지사항</span>
+            </a>
+            <a class="menu" th:href="@{/board/list (bid=community)}">
+                <span class="community">커뮤니티</span>
+            </a>
+            <a class="menu qna" th:href="@{/board/list (bid=qna)}">
+                <span class="qna">질문과 답변</span>
+            </a>
+        </div>
+        <div class="button">
+            <a class="button-menu" href="/">
+                <span class="search">
+                     <i class="fa-solid fa-magnifying-glass"></i>
+                 </span>
+            </a>
+            <a class="button-menu" th:href="@{/member/login}" th:if="${session.user == null}">
+                <span class="user">
+                     <i class="fa-regular fa-user"></i>
+                 </span>
+            </a>
+
+
+            <a class="button-menu" th:if="${session.user != null}" th:href="@{/member/logout}">
+                <span class="logout">
+                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                 </span>
+            </a>
+
+
+
+        </div>
+
+    </div>
+
+</header>
+
+</html>

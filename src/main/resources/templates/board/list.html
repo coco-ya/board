@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>커뮤니티</title>
+    <th:block th:replace="~{fragments/head :: common}"></th:block>
+    <link rel="stylesheet" th:href="@{/board/resources/stylesheets/list.css}">
+    <script defer th:src="@{/board/resources/scripts/list.js}"></script>
+</head>
+<body>
+<th:block th:replace="~{fragments/body :: header}"></th:block>
+<div class="content">
+    <header class="header">
+        <div class="header-menu">
+            <h1 class="title" th:text="${board.getText()}">공지사항</h1>
+            <p class="sub-title">공지사항을 확인해주세요.</p>
+            <div class="search-bar">
+                <div class="search-box">
+                    <i class="icon fa-solid fa-magnifying-glass"></i>
+                    <input class="search-input" type="text" maxlength="50" name="keyword" placeholder="궁금한 것을 검색해보세요.">
+                </div>
+            </div>
+            <div class="keyword-bar">
+                <a class="title">인기</a>
+                <div class="keyword">
+                    <ul>
+                        <li class="text">
+                            <a class="icon">#</a><a class="keyword-text">대구</a>
+                        </li>
+                        <li class="text">
+                            <a class="icon">#</a><a class="keyword-text">대형</a>
+                        </li>
+                        <li class="text">
+                            <a class="icon">#</a><a class="keyword-text">감성</a>
+                        </li>
+                        <li class="text">
+                            <a class="icon">#</a><a class="keyword-text">신상</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="content-head-var">
+            <div class="select-var">
+                <select class="select-keyword">
+                    <option value="pop">인기순</option>
+                    <option selected value="recent">최신순</option>
+                </select>
+            </div>
+            <a class="button-menu" th:href="@{/board/write (bid=${board.getId()})}">
+                <span class="write">
+                     글쓰기
+                 </span>
+            </a>
+        </div>
+
+        <div class="content">
+            <a class="notice" href="/">
+                <span class="notice-icon">공지</span>
+                <span class="notice-content">공지사항을 확인해주세요.</span>
+            </a>
+
+            <hr class="line">
+            <div class="content-container" th:each="article:${articles}" >
+                <a class="main" th:href="@{/board/read (aid=${article.getIndex()})}">
+                    <div class="index" th:text="${article.getIndex()}">11</div>
+                    <div class="title" th:text="${article.getTitle()}" >
+                    <span>
+                        나 운거 티나? 🥲
+                    </span>
+                    </div>
+                    <div class="main-con" th:utext="${article.getContent()}">
+                    <span>
+                        티나냐고 엉엉 🥲
+                    </span>
+                    </div>
+                </a>
+                <div class="option">
+                    <span class="profile-img">
+                      <img alt="profile" class="profile" th:src="@{/resources/images/5721739.png}">
+                    </span>
+                    <span class="nickname" th:text="${article.getUserNickname()}">울보재령</span>
+                    <span class="date" th:text="${#dates.format(article.getModifiedOn(), 'MM.dd HH:mm')}">2일전</span>
+                    <div class="comment-container">
+                        <span>댓글 </span>
+                        <span class="comment"  th:text="${ article.getCommentCount()}">0</span>
+                    </div>
+                    <div class="click-container">
+                        <span>조회 </span>
+                        <span class="click" th:text="${article.getView()}">190</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="line">
+
+
+        </div>
+
+        <div class="page-container"
+             th:with="urlBuilder = ${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}">
+
+            <a class="page"
+               th:href="@{${urlBuilder.replaceQueryParam('page',paging.minPage).build().toUriString()}}"
+               th:if="${paging.requestPage > 1}">
+                <i class="fa-solid fa-angles-left"></i>
+            </a>
+            <a class="page"
+               th:href="@{${urlBuilder.replaceQueryParam('page',paging.requestPage - 1).build().toUriString()}}"
+               th:if="${paging.requestPage > 1}">
+                <i class="fa-solid fa-angle-left"></i>
+            </a>
+            <a class="page"
+               th:each="page:${#numbers.sequence(paging.startPage,paging.endPage)}"
+               th:class="${'page '+(page == paging.requestPage?'selected':'')}"
+               th:text="${page}"
+               th:href="@{${urlBuilder.replaceQueryParam('page',page).build().toUriString()}}"></a>
+
+            <a class="page"
+               th:href="@{${urlBuilder.replaceQueryParam('page',paging.requestPage - 1).build().toUriString()}}"
+               th:if="${paging.requestPage < paging.maxPage}">
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+            <a class="page"
+               th:href="@{${urlBuilder.replaceQueryParam('page',paging.maxPage).build().toUriString()}}"
+               th:if="${paging.requestPage < paging.maxPage}">
+                <i class="fa-solid fa-angles-right"></i>
+            </a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

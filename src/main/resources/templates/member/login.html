@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>로그인</title>
+    <link rel="stylesheet" th:href="@{/member/resources/stylesheets/login.css}">
+    <script defer th:src="@{/member/resources/scripts/login.js}"></script>
+</head>
+<body>
+<main class="main">
+    <form class="form" id="form">
+        <a class="title-container" th:href="@{/board/list (bid=notice)}">
+            <img alt="logo" class="logo" th:src="@{/resources/images/5721739.png}">
+        </a>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>
+                    <label class="label email">
+                        <span hidden>이메일</span>
+                        <input class="--object-input input" maxlength="50" name="email"
+                               placeholder="이메일" type="email">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <label class="label password">
+                        <span hidden>비밀번호</span>
+                        <input class="--object-input input" maxlength="50" name="password"
+                               placeholder="비밀번호" type="password">
+                    </label>
+                </td>
+            </tr>
+
+
+            <tr>
+                <th></th>
+                <td>
+                    <input class="login-button" name="loginSend" value="로그인"
+                           type="submit">
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <label class="link-container">
+                        <a class="link password" href="./recoverPassword">비밀번호 재설정</a>
+                        <a class="link" href="./register">회원가입</a>
+
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</main>
+</body>
+</html>

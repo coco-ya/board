@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>COFFEEE</title>
+    <th:block th:replace="~{fragments/head :: common}"></th:block>
+
+    <link rel="stylesheet" th:href="@{/board/resources/stylesheets/write.css}">
+    <script defer th:src="@{/board/resources/libraries/ckeditor/ckeditor.js}"></script>
+    <script defer th:src="@{/board/resources/scripts/write.js}"></script>
+</head>
+
+<body>
+<th:block th:replace="~{fragments/body :: header}"></th:block>
+<main class="--main main" th:if="${session.user != null}" >
+    <form class="content --content" id="form">
+        <input type="hidden" th:value="${bid}" name="bid">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th></th>
+                <td>
+                    <div class="button-container">
+                        <input class="object-button back" name="back" type="button" value="돌아가기">
+                        <input class="object-button submit" name="submit" type="submit" value="작성하기">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <label class="label">
+                        <span hidden>제목</span>
+                        <div class="titleContainer">
+                            <input class="title" name="title" type="text" placeholder="제목을 입력해주세요." maxlength="30">
+                        </div>
+                    </label>
+                </td>
+            </tr>
+
+            <tr >
+                <th></th>
+                <td>
+                    <label class="label">
+                        <span hidden>내용</span>
+                        <div class="contentContainer">
+                            <textarea name="content" type="text" placeholder="내용을 입력해주세요." maxlength="100000">
+                            </textarea>
+                        </div>
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </form>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+
+body{
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 1.125rem;
+    /* min-height 를 쓴 이유는 내용을 적으면 스크롤 쭉 내릴 수 있게 하기 위해 아마도 */
+    min-height: 100%;
+    margin: unset;
+    overflow: hidden auto;
+    position: absolute;
+
+}
+body > .--header,
+body > .--main,
+body > .--footer {
+    /* 이 요소들은 가로크기 100% 로 가져가는 요소들 */
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+body > .--header> .--content,
+body > .--main > .--content,
+body > .--footer > .--content {
+    /* 이 요소들은 가로크기 80rem으로 가져가는 요소들 아마도 */
+    width: 100%;
+    /* 아무리 늘려도 너비가 80rem 보다는 넓어지지 않는다. 그리고 양 옆에 공간있음. 궁금하면 검사 눌러서 검사해봐 */
+    max-width: 80rem;
+    margin: 0 2rem;
+}
+
+body > .--header {
+    padding: 0 40px;
+    border-bottom: 1px solid #EAEDEF;
+}
+
+
+body > .--header > .head-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 80px;
+    padding-top: 10px;
+    width: 80rem;
+    padding-bottom: 10px;
+}
+
+body > .--header > .head-content > .logo-container > .logo {
+    width: 4rem;
+    margin-right: 2rem;
+}
+
+body > .--header > .head-content > .menu-container {
+    display: flex;
+    flex: 1;
+}
+
+body > .--header > .head-content > .menu-container > .menu {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    margin: 0 10px;
+    padding: 21px 5px 15px;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: bold;
+}
+
+body > .--header > .head-content > .menu-container > .menu.qna{
+    display: flex;
+    flex: 1;
+}
+
+body > .--header > .head-content > .menu-container > .menu:hover {
+    color:rgb(198 162 123)
+}
+
+body > .--header > .head-content > .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+}
+
+body > .--header > .head-content > .button > .button-menu {
+    text-decoration: none;
+}
+
+body > .--header > .head-content > .button > .button-menu > .search {
+    font-size: 1.2rem;
+    padding-right: 1.2rem;
+    color: rgb(0, 0, 0);
+}
+body > .--header > .head-content > .button > .button-menu > .search:hover {
+    color:rgb(198 162 123);
+}
+
+body > .--header > .head-content > .button > .button-menu > .user {
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    padding-right: 1rem;
+}
+
+body > .--header> .head-content > .button > .button-menu > .user > i{
+    font-weight: 600;
+}
+
+body > .--header > .head-content > .button > .button-menu > .logout {
+    text-decoration: none;
+    /* color: rgb(255, 255, 255); */
+    /* background-color: rgb(198 162 123); */
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    color: rgb(0,0,0);
+}
+
+body > .--header > .head-content > .button > .button-menu > .logout:hover {
+    color: rgb(198 162 123);
+}
+
